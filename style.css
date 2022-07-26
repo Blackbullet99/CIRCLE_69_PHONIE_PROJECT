@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;700;800&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font-family-2--: 'open sans', sans-serif;
+    --text-color--: #fff;
+    --bg-main-color--: #000;
+    --input-bg-color--: #EEEEEE;
+    --sec-color--: #353535;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F5;
+}
+
+.main-body{
+    display: flex;
+    position: relative;
+}
+
+.form-section{
+    position: absolute;
+    font-family: var(--font-family-2--);
+    width: 841px;
+    left: 800px;
+    top: 170px;
+}
+
+.side-sec{
+    background-color: #0E2122;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    width: 500px;
+    padding-left: 24px;
+    padding-top: 150px;
+}
+
+.side-sec div{
+    margin-bottom: 30px;
+}
+
+.side-sec div h1{
+    background-color: var(--bg-main-color--);
+    display: inline-block;
+    color: #0E2122;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 75px;
+}
+
+.side-sec div h2{
+    color: var(--text-color--);
+    font-size: 64px;
+    font-family: var(--font-family-2--);
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.side-sec div p{
+    margin-top: 370px;
+    color: var(--text-color--);
+    font-family: var(--font-family-2--);
+}
+
+.form-section .form-content{
+    background-color: var(--text-color--);
+    padding: 20px;
+    height: 650px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.form-section .form-content h2{
+    font-weight: 600;
+    text-align: center;
+    font-size: 54px;
+    margin-bottom: 30px;
+}
+
+.form-section .form-content form div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-section .form-content form div div{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.form-section .form-content form div div label{
+    font-size: 15px;
+    color: var(--sec-color--);
+}
+
+.action-sec{
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    background-color: var(--input-bg-color--);
+    border-radius: 6px;
+}
+
+.proceed-btn{
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    background-color: #0E2122;
+    color: var(--text-color--);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.phone-input{
+    position: relative;
+}
+
+.phone-input img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    right: 10px;
+    top: 25px;
+    opacity: 0;
+}
+
+.phone-input:hover img{
+    opacity: 1;
+}
+
+.password{
+    position: relative;
+}
+
+.password i{
+    position: absolute;
+    right: 10px;
+    top: 33px;
+}
+
+
+@media (max-width: 940px){
+    .main-body{
+        flex-direction: column;
+    }
+
+    .side-sec{
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+        bottom: 0;
+        background-color: transparent;
+    }
+
+    .side-sec div{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .side-sec div h1{
+        display: block;
+        font-size: 40px;
+        padding: 12px 20px;
+        border-radius: 50%;
+    }
+
+    .side-sec div h2{
+        color: var(--bg-main-color--);
+        font-size: 40px;
+    }
+
+    .side-sec div p{
+        display: none;
+    }
+
+    .form-section{
+        width: 100%;
+        left: 0;
+        top: 130px;
+    }
+
+    .form-section .form-content{
+        margin: 30px;
+        height: 550px;
+    }
+
+    .form-section .form-content h2{
+        display: none;
+    }
+
+    .form-section .form-content form div{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .form-section .form-content form div div{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .proceed-btn{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    
+}
