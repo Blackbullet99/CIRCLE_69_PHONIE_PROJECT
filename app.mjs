@@ -59,9 +59,70 @@ const logos = {
       
 }
 
+let phoneNumber = document.getElementById("phone-number");
+let providerDiv = document.getElementById("provider");
+
+function catchInput(event) {
+  // Remove white spaces from the input
+  let value = phoneNumber.value.replace(/\s+/g, '');
+  let provider = undefined;
+  
+  // checks prefix by calling the checkPrefix function and inserts the corresponding logo
+  if (value.startsWith("0")) {
+      provider = checkPrefix(value)
+      
+    } else if (value.startsWith("+234")) {
+      let prefix = "0" + value.substring(4);
+      provider = checkPrefix(prefix);
+      
+    }
+    
+    if (provider != undefined) {
+      providerDiv.innerHTML = logos[provider];
+    } else {
+      providerDiv.innerHTML = "";
+    }
+    
+  }
+
+  // Checks the prefix of the input and retuns the provider.
+  // Returns undefined if there is no match
+  function checkPrefix(value) {
+    let provider = undefined;
+  if (value.length >= 4) {
+    provider = prefix[value.substring(0,4)];
+      if (provider != undefined) {
+        return provider;
+      };
+    };
+    if (provider == undefined & value.length >= 5) {
+      provider = prefix[value.substring(0,5)];
+      if (provider != undefined) {
+          return provider;
+        };
+
+        
+  } 
+  return provider;
+}
+
+
+// Forces the input to be + or 0 for the first entry and numbers for the rest
+function isPhoneNumberKey(event) {
+  if (phoneNumber.value.length === 0 && event.key != "+" && event.key != "0") {
+    event.preventDefault();
+  } else if (phoneNumber.value.length > 0 && !isFinite(event.key)) {
+    event.preventDefault();
+  }
+}
+
+
+
+
+
 function startApp() {
     // Your entire app should not necessarily be coded inside this 
-    // single function (though there's no penalty for that), 
+    // single function (though there's no penalty for that),
     // so create and use/call additional functions from here
   
     // pls remove the below and make some magic in here!
@@ -73,70 +134,11 @@ function startApp() {
     // }
 
     // Get the phone number input element and the display for the logos
-    phoneNumber = document.getElementById("phone-number");
-    providerDiv = document.getElementById("provider");
+    
+  phoneNumber.addEventListener("keypress", (event)=>{ return isPhoneNumberKey(event) })
     phoneNumber.addEventListener('input', catchInput);
     
   };
-  
-
-function catchInput(event) {
-  // Remove white spaces from the input
-  value = phoneNumber.value.replace(/\s+/g, '');
-  let provider = undefined;
-
-  // checks prefix by calling the checkPrefix function and inserts the corresponding logo
-  if (value.startsWith("0")) {
-      provider = checkPrefix(value)
-      
-  } else if (value.startsWith("+234")) {
-      let prefix = "0" + value.substring(4);
-      provider = checkPrefix(prefix);
-
-      }
-      
-  if (provider != undefined) {
-      providerDiv.innerHTML = logos[provider];
-  } else {
-      providerDiv.innerHTML = "";
-  }
-  
-}
-
-// Checks the prefix of the input and retuns the provider.
-// Returns undefined if there is no match
-function checkPrefix(value) {
-  let provider = undefined;
-  if (value.length >= 4) {
-      provider = prefix[value.substring(0,4)];
-      if (provider != undefined) {
-          return provider;
-      };
-  };
-  if (provider == undefined & value.length >= 5) {
-      provider = prefix[value.substring(0,5)];
-      if (provider != undefined) {
-          return provider;
-      };
-
-      
-  } 
-  return provider;
-}
-
-// Forces the input to be + or 0 for the first entry and numbers for the rest
-function isPhoneNumberKey(event) {
-  if (phoneNumber.value.length === 0 && event.key != "+" && event.key != "0") {
-      event.preventDefault();
-  } else if (phoneNumber.value.length > 0 && !isFinite(event.key)) {
-      event.preventDefault();
-  }
-}
-
-
-
-
-
 
 
   

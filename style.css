@@ -16,36 +16,60 @@
     --sec-color--: #353535;
 }
 
+html, body {
+    min-height: 100%;
+    width: 100%;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
     background-color: #F5F5F5;
+    min-height: 100vh;
+
 }
 
 .main-body{
     display: flex;
-    position: relative;
+    /* position: relative; */
 }
 
 .form-section{
-    position: absolute;
+    /* position: absolute; */
     font-family: var(--font-family-2--);
-    width: 841px;
+    flex: 3fr;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    /* width: 841px;
     left: 800px;
-    top: 170px;
+    top: 170px; */
 }
 
 .side-sec{
     background-color: #0E2122;
-    position: fixed;
-    bottom: 0;
+    /* position: fixed; */
+    flex: 1fr;
+    width: 30%;
+    /* bottom: 0;
     top: 0;
-    width: 500px;
-    padding-left: 24px;
-    padding-top: 150px;
+    width: 500px; */
+    /* padding-left: 24px;
+    padding-top: 150px; */
+    padding: 150px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    min-height: 100vh;
 }
 
-.side-sec div{
+/* .side-sec div{
     margin-bottom: 30px;
+} */
+
+.side-sec div:first-child{
+    flex: 1fr;
 }
 
 .side-sec div h1{
@@ -66,7 +90,7 @@ body{
 }
 
 .side-sec div p{
-    margin-top: 370px;
+    /* margin-top: 370px; */
     color: var(--text-color--);
     font-family: var(--font-family-2--);
 }
@@ -135,12 +159,12 @@ body{
     border-radius: 50%;
     right: 10px;
     top: 25px;
-    opacity: 0;
-}
-
-.phone-input:hover img{
     opacity: 1;
 }
+
+/* .phone-input:hover img{
+    opacity: 1;
+} */
 
 .password{
     position: relative;
@@ -159,11 +183,14 @@ body{
     }
 
     .side-sec{
+        flex: none;
+        display: block;
         width: 100%;
         padding-left: 0;
         padding-top: 0;
         bottom: 0;
         background-color: transparent;
+        min-height: auto;
     }
 
     .side-sec div{
@@ -190,8 +217,12 @@ body{
 
     .form-section{
         width: 100%;
-        left: 0;
-        top: 130px;
+        /* left: 0; */
+        /* top: 130px; */
+    }
+
+    .form-section form{
+        padding-bottom: 50px;
     }
 
     .form-section .form-content{
